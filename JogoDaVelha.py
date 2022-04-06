@@ -156,9 +156,13 @@ class iniciarJogo:
             elif self.QUADRANTES[7] == self.QUADRANTES[5] == self.QUADRANTES[3]:
                 print('ganhador')
                 return True
+            elif self.RODADA == 10:
+                print('Empate')
+                return True
 
     def reiniciar(self):
         self.QUADRANTES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        self.RODADA = 1
         pygame.display.set_caption("Jogo da velha jogador x")
         jogodavelha = iniciarJogo()
 
