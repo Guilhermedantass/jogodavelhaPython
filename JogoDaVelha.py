@@ -10,6 +10,7 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 pygame.display.set_caption("Jogo da velha")
 
+
 class iniciarJogo:
     RODADA = 1
     QUADRANTES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -74,8 +75,10 @@ class iniciarJogo:
         elif 100 < pos[0] < 200 and 100 < pos[1] < 200:
             if self.QUADRANTES[5] == 5:
                 if self.RODADA % 2:
-                    pygame.draw.line(self.screen, WHITE, (100, 100), (200, 200))
-                    pygame.draw.line(self.screen, WHITE, (100, 200), (200, 100))
+                    pygame.draw.line(self.screen, WHITE,
+                                     (100, 100), (200, 200))
+                    pygame.draw.line(self.screen, WHITE,
+                                     (100, 200), (200, 100))
                     self.QUADRANTES[5] = 'x'
                     self.RODADA += 1
 
@@ -86,8 +89,10 @@ class iniciarJogo:
         elif 300 > pos[0] > 200 > pos[1] > 100:
             if self.QUADRANTES[6] == 6:
                 if self.RODADA % 2:
-                    pygame.draw.line(self.screen, WHITE, (200, 100), (300, 200))
-                    pygame.draw.line(self.screen, WHITE, (200, 200), (300, 100))
+                    pygame.draw.line(self.screen, WHITE,
+                                     (200, 100), (300, 200))
+                    pygame.draw.line(self.screen, WHITE,
+                                     (200, 200), (300, 100))
                     self.QUADRANTES[6] = 'x'
                     self.RODADA += 1
 
@@ -110,8 +115,10 @@ class iniciarJogo:
         elif 100 < pos[0] < 200 < pos[1] < 300:
             if self.QUADRANTES[8] == 8:
                 if self.RODADA % 2:
-                    pygame.draw.line(self.screen, WHITE, (100, 200), (200, 300))
-                    pygame.draw.line(self.screen, WHITE, (100, 300), (200, 200))
+                    pygame.draw.line(self.screen, WHITE,
+                                     (100, 200), (200, 300))
+                    pygame.draw.line(self.screen, WHITE,
+                                     (100, 300), (200, 200))
                     self.QUADRANTES[8] = 'x'
                     self.RODADA += 1
 
@@ -122,8 +129,10 @@ class iniciarJogo:
         elif 200 < pos[0] < 300 and 200 < pos[1] < 300:
             if self.QUADRANTES[9] == 9:
                 if self.RODADA % 2:
-                    pygame.draw.line(self.screen, WHITE, (200, 200), (300, 300))
-                    pygame.draw.line(self.screen, WHITE, (200, 300), (300, 200))
+                    pygame.draw.line(self.screen, WHITE,
+                                     (200, 200), (300, 300))
+                    pygame.draw.line(self.screen, WHITE,
+                                     (200, 300), (300, 200))
                     self.QUADRANTES[9] = 'x'
                     self.RODADA += 1
                 else:
@@ -132,40 +141,39 @@ class iniciarJogo:
                     self.RODADA += 1
 
     def verficar_ganhador(self):
-            if self.QUADRANTES[1] == self.QUADRANTES[2] == self.QUADRANTES[3]:
-                print(self.QUADRANTES[1], self.QUADRANTES[4])
-                return True
-            elif self.QUADRANTES[4] == self.QUADRANTES[5] == self.QUADRANTES[6]:
-                 print('ganhador')
-                 return True
-            elif self.QUADRANTES[7] == self.QUADRANTES[8] == self.QUADRANTES[9]:
-                print('ganhador')
-                return True
-            elif self.QUADRANTES[1] == self.QUADRANTES[4] == self.QUADRANTES[7]:
-                print('ganhador')
-                return True
-            elif self.QUADRANTES[2] == self.QUADRANTES[5] == self.QUADRANTES[8]:
-                print('ganhador')
-                return True
-            elif self.QUADRANTES[3] == self.QUADRANTES[6] == self.QUADRANTES[9]:
-                print('ganhador')
-                return True
-            elif self.QUADRANTES[1] == self.QUADRANTES[5] == self.QUADRANTES[9]:
-                print('ganhador')
-                return True
-            elif self.QUADRANTES[7] == self.QUADRANTES[5] == self.QUADRANTES[3]:
-                print('ganhador')
-                return True
-            elif self.RODADA == 10:
-                print('Empate')
-                return True
+        if self.QUADRANTES[1] == self.QUADRANTES[2] == self.QUADRANTES[3]:
+            print(self.QUADRANTES[1], self.QUADRANTES[4])
+            return True
+        elif self.QUADRANTES[4] == self.QUADRANTES[5] == self.QUADRANTES[6]:
+            print('ganhador')
+            return True
+        elif self.QUADRANTES[7] == self.QUADRANTES[8] == self.QUADRANTES[9]:
+            print('ganhador')
+            return True
+        elif self.QUADRANTES[1] == self.QUADRANTES[4] == self.QUADRANTES[7]:
+            print('ganhador')
+            return True
+        elif self.QUADRANTES[2] == self.QUADRANTES[5] == self.QUADRANTES[8]:
+            print('ganhador')
+            return True
+        elif self.QUADRANTES[3] == self.QUADRANTES[6] == self.QUADRANTES[9]:
+            print('ganhador')
+            return True
+        elif self.QUADRANTES[1] == self.QUADRANTES[5] == self.QUADRANTES[9]:
+            print('ganhador')
+            return True
+        elif self.QUADRANTES[7] == self.QUADRANTES[5] == self.QUADRANTES[3]:
+            print('ganhador')
+            return True
+        elif self.RODADA == 10:
+            print('Empate')
+            return True
 
     def reiniciar(self):
         self.QUADRANTES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         self.RODADA = 1
         pygame.display.set_caption("Jogo da velha jogador x")
         jogodavelha = iniciarJogo()
-
 
 
 jogodavelha = iniciarJogo()
